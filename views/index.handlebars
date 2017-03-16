@@ -1,0 +1,71 @@
+<main class="container">
+    <div class="row">
+        <div class="col-md-9 col-offset-md-3 text-center" id="headerDiv">
+               <h1> <img src="../assets/images/burger-2.png" style="height:50px; width: 50px; background-color: red;">
+                 BOX da BURGER! </h1> 
+        </div>
+    </div>
+
+    <div class ="row form-group"> 
+        <div class="col-md-10 col-offset-md-2 text-center" id="addDiv">
+            <form class="form-inline" action="burgers/create" method="POST">
+                <fieldset>
+                    <label>Enter a burger you want to eat and click the "Submit" button.</label>
+                    <input name="burgerName" type="text" class="form-control" id="inputBox">
+                    <span><button type="submit" class="btn btn-danger" id="SubmitBtn">Submit</button></span>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+    <div class="row text-center" id="burgersDiv">
+        <div class="col-md-4" id="burgerList">
+            <ul style="list-style-type:none">
+                {{#each burgers}}
+                    {{#unless this.devoured}}
+                        <li>
+                            {{this.burger_name}}
+                            <br>
+                            <form action="burgers/update/{{this.id}}?_method=PUT" method="POST" style="display: inline">
+                                <input type="hidden" name="devoured" value="1">
+                                <button type="submit" class="btn btn-info btn-xs" class="devourBtn" >Devour It! 
+                                <span class="glyphicon glyphicon-cutlery"></span>
+                                </button>
+                            </form>
+                            <form action="burgers/delete/{{this.id}}?_method=DELETE" method="POST" style="display: inline">
+                                <button type="submit" class="btn btn-danger btn-xs" class="devourBtn" style="display: inline;">Trash It! 
+                                <span class="glyphicon glyphicon-remove-circle"></span></button>
+                            </form>
+                        </li>
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="col-md-4 text-center" id="mainImage" >
+            <img src="../assets/images/burger-1.gif" id="burgerImage">
+        </div>
+
+        <div class="col-md-4" id="devouredBurgers">
+            <ul style="list-style-type:none">
+                {{#each burgers}}
+                    {{#if this.devoured}}
+                        <li>
+                            {{this.burger_name}}
+                            <br>
+                            <form action="burgers/update/{{this.id}}?_method=PUT" method="POST" style="display: inline">
+                                <input type="hidden" name="devoured" value="0">
+                                <button type="submit" class="btn btn-warning btn-xs" class="devourBtn">
+                                <span class="glyphicon glyphicon-backward"></span> Return it!</button>
+                            </form>
+                            <form action="burgers/delete/{{this.id}}?_method=DELETE" method="POST" style="display: inline">
+                                <button type="submit" class="btn btn-danger btn-xs" id="devourBtn">
+                                <span class="glyphicon glyphicon-remove-circle"></span> Trash It!</button>
+                            </form>
+                        </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</main>

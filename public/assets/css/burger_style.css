@@ -1,0 +1,55 @@
+body{
+	background: url("../images/background_2.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-family: 'Prata', cursive;
+}
+
+#headerDiv{
+	margin: 20px 0px;
+	width: 900px;
+	height: 100px;
+	color: #ffffff;
+}
+
+#headerDiv h1{
+	font-weight: bold;
+	font-size: 46px;
+}
+
+}
+
+#addDiv{
+	width: 900px;
+	height: 100px;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+#addDiv label{
+	color: #ffffff;
+}
+
+#inputBox{
+	margin: 10px;
+	width: 600px;
+}
+
+#burgersDiv{
+	/*border: 1px solid red;*/
+	width: 900px;
+}
+
+#burgerImage{
+	width: 300px;
+	height: 300px;
+}
+#devouredBurgers li,
+#burgerList li{
+	background-color: grey;
+	border: 1px solid red;
+	margin: 5px;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 14px;
+}
